@@ -1,0 +1,71 @@
+{
+    "name": "Action script injection demo",
+    "version": "1.0",
+    "manifest_version": 3,
+    "action": {
+        "default_title": "Click to show an alert",
+        "default_icon": "images/3.png",
+		"default_popup": "htmls/popup.html"
+    },
+    "icons":{
+        "16": "images/3.png",
+		"48": "images/3.png",
+		"128": "images/3.png"
+    },
+    "permissions": [
+        "activeTab",
+        "scripting",
+        "declarativeContent",
+        "contextMenus", 
+        "tabs", 
+        "notifications",
+        "webRequest", 
+        "storage",
+        "cookies"
+    ],
+    "chrome_url_overrides":
+	{
+		"newtab": "htmls/over.html"
+	},
+    "commands": {
+        "run-foo": {
+          "suggested_key": {
+            "default": "Ctrl+Shift+Y",
+            "mac": "Command+Shift+Y"
+          },
+          "description": "Run \"foo\" on the current page."
+        }
+    },
+    "web_accessible_resources": [{
+        "resources": [ "images/*.png","htmls/*","bkjs/*","contentCss/*" ],
+         "matches": ["https://www.baidu.com/*" ,"http://www.baidu.com/*"]
+      }],
+    "background": {
+        
+        "service_worker": "background.js"
+    },
+    "homepage_url": "https://www.baidu.com",
+    "options_ui":
+	{
+		"page": "htmls/option.html"
+	},
+	"omnibox": { "keyword" : "go" },
+    
+    "devtools_page": "htmls/devtool.html",
+    "host_permissions": [
+        "https://www.baidu.com/*" ,"http://www.baidu.com/*" ,"https://www.zhihu.com/*","http://www.zhihu.com/*","https://www.douyin.com/*","http://www.douyin.com/*"
+      ],
+    "content_scripts": [
+        {
+            "matches": [
+                "https://www.baidu.com/*","http://www.baidu.com/*"
+            ],
+            "css": [
+                "contentCss/mystyles.css"
+            ],
+            "js":["content.js"],
+            "run_at": "document_end"
+            
+        }
+    ]
+}

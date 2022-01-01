@@ -1,0 +1,25 @@
+#head_wrapper .s_btn {
+    cursor: pointer;
+    width: 108px;
+    height: 44px;
+    line-height: 45px;
+    line-height: 44px\9;
+    padding: 0;
+    background: 0 0;
+    background-color: #4ef277!important;
+    border-radius: 0 10px 10px 0;
+    font-size: 17px;
+    color: #fff;
+    box-shadow: none;
+    font-weight: 400;
+    border: none;
+    outline: 0;
+}
+
+
+.s-top-left-new .imagebutton {
+    margin-right: 24px;
+    margin-top: 19px;
+    display: inline-block;
+    position: relative;
+}
